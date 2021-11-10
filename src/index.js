@@ -23,24 +23,26 @@ function formatDate(date) {
   return `${currentDay}, ${currentHour}:${currentMinute}`;
 }
 
-function showTemp(response) {
-  let currentTempElement = document.querySelector("#current-temperature");
-  let currentTemp = Math.round(response.data.main.temp);
-  currentTempElement.innerHTML = `${currentTemp}°C`;
-}
-
-function showCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#which-city");
-  let city = document.querySelector("#current-city");
-
+function search(city) {
   let unit = "metric";
   let apiKey = "4041bf9742afc24728873441533a36de";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
-  city.innerHTML = cityInput.value;
+  axios.get(apiUrl).then(showCityTemp);
+}
 
-  axios.get(apiUrl).then(showTemp);
+function showCityTemp(response) {
+  let city = document.querySelector("#current-city");
+  let currentTemp = Math.round(response.data.main.temp);
+  let currentTempElement = document.querySelector("#current-temperature");
+  currentTempElement.innerHTML = `${currentTemp}°C`;
+  city.innerHTML = response.data.name;
+}
+
+function handleCityInput(event) {
+  event.preventDefault();
+  let city = document.querySelector("#which-city").value;
+  search(city);
 }
 
 function convertToCelsius(event) {
@@ -58,7 +60,7 @@ function convertToFahrenheit(event) {
   temperature.innerHTML = `${fahrenheit}°F`;
 }
 
-function showCurrentCity(response) {
+function showCurrentCityTemp(response) {
   let currentCity = document.querySelector("#current-city");
   let currentTemperature = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.main.temp);
@@ -73,7 +75,7 @@ function showCoordinates(position) {
   let apiKey = "4041bf9742afc24728873441533a36de";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=${units}`;
 
-  axios.get(apiUrl).then(showCurrentCity);
+  axios.get(apiUrl).then(showCurrentCityTemp);
 }
 
 function getCoordinates(event) {
@@ -85,7 +87,7 @@ let now = new Date();
 currentTime.innerHTML = formatDate(now);
 
 let submitCity = document.querySelector("#submit-city");
-submitCity.addEventListener("submit", showCity);
+submitCity.addEventListener("submit", handleCityInput);
 
 let toFahrenheit = document.querySelector("#fahrenheit");
 toFahrenheit.addEventListener("click", convertToFahrenheit);
@@ -95,3 +97,5 @@ toCelsius.addEventListener("click", convertToCelsius);
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCoordinates);
+
+search("Tokyo");
