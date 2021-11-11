@@ -1,5 +1,5 @@
 .weather-app {
-  margin: 100px auto;
+  margin: 100px auto 15px;
   max-width: 70%;
   padding: 20px 50px;
   border: none;
@@ -170,4 +170,14 @@
   font-size: 12px;
   padding-top: 4px;
   color: rgb(47, 196, 178);
+}
+
+.coded-by {
+  display: block;
+  margin: 20px auto 15px;
+  max-width: 70%;
+}
+
+.github-link {
+  color: rgb(18, 148, 127);
 }
