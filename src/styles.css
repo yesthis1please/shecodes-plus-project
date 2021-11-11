@@ -1,6 +1,6 @@
 .weather-app {
-  margin: 100px auto 15px;
-  max-width: 70%;
+  margin: 50px auto 15px;
+  max-width: 55%;
   padding: 20px 50px;
   border: none;
   border-radius: 30px;
@@ -174,8 +174,8 @@
 
 .coded-by {
   display: block;
-  margin: 20px auto 15px;
-  max-width: 70%;
+  margin: 10px auto 50px;
+  max-width: 55%;
 }
 
 .github-link {
