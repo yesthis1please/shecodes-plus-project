@@ -33,9 +33,9 @@ function search(city) {
 
 function showCityTemp(response) {
   let city = document.querySelector("#current-city");
-  let currentTemp = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   let currentTempElement = document.querySelector("#current-temperature");
-  currentTempElement.innerHTML = `${currentTemp}°C`;
+  currentTempElement.innerHTML = `${celsiusTemperature}°C`;
   city.innerHTML = response.data.name;
 }
 
@@ -47,15 +47,13 @@ function handleCityInput(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let celsius = 26;
   let temperature = document.querySelector("span.current-temperature");
-  temperature.innerHTML = `${celsius}°C`;
+  temperature.innerHTML = `${celsiusTemperature}°C`;
 }
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let celsius = 26;
-  let fahrenheit = Math.round(celsius * 1.8 + 32);
+  let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
   let temperature = document.querySelector("span.current-temperature");
   temperature.innerHTML = `${fahrenheit}°F`;
 }
@@ -63,9 +61,9 @@ function convertToFahrenheit(event) {
 function showCurrentCityTemp(response) {
   let currentCity = document.querySelector("#current-city");
   let currentTemperature = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   currentCity.innerHTML = response.data.name;
-  currentTemperature.innerHTML = `${temperature}°C`;
+  currentTemperature.innerHTML = `${celsiusTemperature}°C`;
 }
 
 function showCoordinates(position) {
@@ -81,6 +79,8 @@ function showCoordinates(position) {
 function getCoordinates(event) {
   navigator.geolocation.getCurrentPosition(showCoordinates);
 }
+
+let celsiusTemperature = null;
 
 let currentTime = document.querySelector("#current-time");
 let now = new Date();
