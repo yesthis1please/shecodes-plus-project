@@ -47,12 +47,16 @@ function handleCityInput(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
+  toFahrenheit.classList.remove("active");
+  toCelsius.classList.add("active");
   let temperature = document.querySelector("span.current-temperature");
   temperature.innerHTML = `${celsiusTemperature}°C`;
 }
 
 function convertToFahrenheit(event) {
   event.preventDefault();
+  toCelsius.classList.remove("active");
+  toFahrenheit.classList.add("active");
   let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
   let temperature = document.querySelector("span.current-temperature");
   temperature.innerHTML = `${fahrenheit}°F`;
