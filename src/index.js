@@ -32,11 +32,20 @@ function search(city) {
 }
 
 function showCityTemp(response) {
-  let city = document.querySelector("#current-city");
   celsiusTemperature = Math.round(response.data.main.temp);
   let currentTempElement = document.querySelector("#current-temperature");
+  let city = document.querySelector("#current-city");
+  let currentConditions = document.querySelector(".current-conditions");
+  let currentIconElement = document.querySelector("#current-weather-icon");
+  let weatherDescription = response.data.weather[0].description;
+  let windSpeedKm = Math.round(response.data.wind.speed) * 3.6;
   currentTempElement.innerHTML = `${celsiusTemperature}°C`;
   city.innerHTML = response.data.name;
+  currentConditions.innerHTML = `${weatherDescription} with a wind speed of ${windSpeedKm}km/h.`;
+  currentIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function handleCityInput(event) {
@@ -65,9 +74,18 @@ function convertToFahrenheit(event) {
 function showCurrentCityTemp(response) {
   let currentCity = document.querySelector("#current-city");
   let currentTemperature = document.querySelector("#current-temperature");
+  let currentConditions = document.querySelector(".current-conditions");
+  let weatherDescription = response.data.weather[0].description;
+  let windSpeedKm = Math.round(response.data.wind.speed) * 3.6;
+  let currentIconElement = document.querySelector("#current-weather-icon");
   celsiusTemperature = Math.round(response.data.main.temp);
   currentCity.innerHTML = response.data.name;
   currentTemperature.innerHTML = `${celsiusTemperature}°C`;
+  currentConditions.innerHTML = `${weatherDescription} with a wind speed of ${windSpeedKm}km/h.`;
+  currentIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function showCoordinates(position) {
