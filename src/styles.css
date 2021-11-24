@@ -142,11 +142,7 @@
   color: rgb(255, 123, 84);
 }
 
-.day1,
-.day2,
-.day3,
-.day4,
-.day5 {
+.day {
   color: rgb(18, 148, 127);
   text-align: center;
   padding: 12px 40px 6px;
@@ -156,11 +152,7 @@
   transition: all 150ms ease-in-out;
 }
 
-.day1:hover,
-.day2:hover,
-.day3:hover,
-.day4:hover,
-.day5:hover {
+.day:hover {
   background: rgba(255, 123, 84, 0.2);
 }
 
@@ -168,6 +160,7 @@
   text-align: left;
   font-weight: 600;
   color: rgb(237, 97, 97);
+  padding: 0;
 }
 
 .forecast-emoji {
@@ -182,11 +175,13 @@
   color: rgb(47, 196, 178);
 }
 
-.hightest-temp {
+.highest-temp {
   text-align: right;
+  padding-right: 0;
 }
 
 .lowest-temp {
+  text-align: left;
   font-weight: 300;
   font-size: 12px;
   padding-top: 4px;

@@ -23,6 +23,28 @@ function formatDate(date) {
   return `${currentDay}, ${currentHour}:${currentMinute}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+  let forecastHTML = "";
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+         <div class="row day">
+            <div class="col-3 forecast-day">${day}</div>
+            <div class="col">
+              <i class="fas fa-sun forecast-emoji"></i>
+            </div>
+            <div class="col-2 highest-temp">28°C</div>
+            <div class="col-1 lowest-temp">20°C</div>
+          </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let unit = "metric";
   let apiKey = "4041bf9742afc24728873441533a36de";
@@ -121,3 +143,5 @@ let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCoordinates);
 
 search("Tokyo");
+
+displayForecast();
