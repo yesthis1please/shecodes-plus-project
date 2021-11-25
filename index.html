@@ -26,43 +26,55 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="unit-change">
-          <a href="#" class="celsius-button active" id="celsius">C</a>
-          <a href="#" class="fahrenheit-button" id="fahrenheit">F</a>
+      <div class="row weather-app-elements">
+        <div class="col">
+          <div class="row top-section">
+            <div class="col weather-app">
+              <div class="unit-change">
+                <a href="#" class="celsius-button active" id="celsius">C</a>
+                <a href="#" class="fahrenheit-button" id="fahrenheit">F</a>
+              </div>
+            </div>
+            <div class="col search-form">
+              <form class="search-city" id="submit-city">
+                <input
+                  type="text"
+                  placeholder="How's the weather in..."
+                  autocomplete="off"
+                  class="city-input"
+                  id="which-city"
+                />
+                <input type="submit" value="Show me" class="show-me" />
+              </form>
+            </div>
+          </div>
+          <div class="row bottom-section">
+            <div class="col current-location-button">
+              <button class="current-button" id="current-button">
+                Where am I at?
+              </button>
+            </div>
+            <div class="col city-time">
+              <h2 class="current-city" id="current-city"></h2>
+              <div class="current-time" id="current-time"></div>
+            </div>
+          </div>
+          <header>
+            <h1 class="current-weather">
+              <img
+                src=""
+                class="fas fa-sun current-weather-emoji"
+                id="current-weather-icon"
+              /><span
+                class="current-temperature"
+                id="current-temperature"
+              ></span>
+            </h1>
+            <p class="current-conditions"></p>
+          </header>
         </div>
 
-        <form class="search-city" id="submit-city">
-          <input
-            type="text"
-            placeholder="How's the weather in..."
-            autocomplete="off"
-            class="city-input"
-            id="which-city"
-          />
-          <input type="submit" value="Show me" class="show-me" />
-          <button class="current-button" id="current-button">
-            Where am I at?
-          </button>
-        </form>
-
-        <header>
-          <h1 class="current-weather">
-            <img
-              src=""
-              class="fas fa-sun current-weather-emoji"
-              id="current-weather-icon"
-            /><span class="current-temperature" id="current-temperature"></span>
-          </h1>
-          <p class="current-conditions"></p>
-        </header>
-
-        <div class="current-city-time">
-          <h2 class="current-city" id="current-city"></h2>
-          <div class="current-time" id="current-time"></div>
-        </div>
-
-        <div class="forecast"></div>
+        <div class="col forecast"></div>
       </div>
       <div class="coded-by" id="coded-by">
         <a
