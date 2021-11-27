@@ -1,19 +1,15 @@
-.weather-app {
-  margin: 50px auto 15px;
-  max-width: 600px;
-  padding: 20px 50px;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 30px 30px 50px rgb(150, 209, 199);
+body {
   font-family: "Comfortaa", cursive;
 }
 
-.search-city {
-  text-align: left;
+div.container {
+  margin: 100px auto;
+  max-width: 800px;
 }
 
 .city-input {
-  padding: 7px 30px 5px 15px;
+  margin: 80px 0 20px;
+  padding: 7px 58px 5px 15px;
   border-radius: 20px;
   border: none;
   box-shadow: 5px 5px 10px rgb(150, 209, 199);
@@ -25,7 +21,7 @@
 }
 
 .show-me {
-  margin: 10px 0;
+  margin-left: 10px;
   padding: 7px 15px 5px;
   border-radius: 20px;
   border: none;
@@ -36,90 +32,60 @@
 }
 
 .show-me:hover {
+  padding: 12px 20px 10px;
+  margin-left: 0;
+  border-radius: 25px;
   background: rgb(255, 123, 84);
   box-shadow: 10px 10px 20px rgb(150, 209, 199);
 }
 
 .current-button {
-  margin: 10px 0;
-  padding: 7px 15px 5px;
-  border-radius: 20px;
-  border: none;
-  color: #fff;
-  background: rgba(255, 123, 84, 0.9);
-  box-shadow: 5px 5px 10px rgb(150, 209, 199);
-  transition: all 100ms ease-in-out;
-}
-
-.current-button:hover {
-  background: rgb(255, 123, 84);
-  box-shadow: 10px 10px 20px rgb(150, 209, 199);
-}
-
-.unit-change {
-  margin: 10px 0 15px;
-}
-
-.celsius-button,
-.fahrenheit-button {
-  text-decoration: none;
-  padding: 10px 15px;
-  margin: 0 3px;
+  font-size: 54px;
+  margin: 10px 20px 30px 50px;
+  padding: 20px 40px 15px;
   border-radius: 50%;
   border: none;
   color: #fff;
   background: rgba(255, 123, 84, 0.9);
-  box-shadow: 5px 5px 10px rgb(150, 209, 199);
-  transition: all 100ms ease-in-out;
-}
-
-.celsius-button:hover,
-.fahrenheit-button:hover {
-  background: rgb(255, 123, 84);
   box-shadow: 10px 10px 20px rgb(150, 209, 199);
-  cursor: pointer;
-  color: #fff;
+  transition: all 150ms ease-in-out;
 }
 
-.active {
-  background: rgba(255, 123, 84, 0.7);
-  box-shadow: none;
+.current-button:hover {
+  background: rgb(255, 123, 84);
+  padding: 25px 45px 20px;
+  box-shadow: 30px 30px 50px rgb(150, 209, 199);
+  margin: 10px 10px 20px 50px;
 }
 
-.active:hover {
-  background: rgba(255, 123, 84, 0.7);
+header {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 30px 30px 50px rgb(150, 209, 199);
+  transition: all 150ms ease-in-out;
+}
+
+header:hover {
   box-shadow: none;
-  cursor: default;
+  text-shadow: 10px 10px 15px rgba(255, 123, 84, 0.6);
 }
 
 .current-weather {
-  margin-top: 50px;
-  margin-bottom: 0;
   text-align: center;
   font-size: 120px;
   line-height: 0;
 }
 
-.current-weather-emoji {
-  display: inline;
-  line-height: 0.5;
-  color: rgba(237, 97, 97, 0.8);
-}
-
 .current-temperature {
   font-size: 70px;
   font-weight: 600;
-  position: relative;
-  left: -20px;
   color: rgb(18, 148, 127);
 }
 
 .current-conditions {
-  text-align: right;
-  font-size: 16px;
-  position: relative;
-  top: -15px;
-
+  text-align: center;
+  font-size: 18px;
   color: rgb(47, 196, 178);
 }
 
@@ -143,22 +109,25 @@
 }
 
 .forecast {
-  margin-top: 100px;
   max-width: 400px;
 }
 
 .day {
   color: rgb(18, 148, 127);
   text-align: center;
-  padding: 15px 40px 15px;
+  padding: 0 40px;
   border-radius: 35px;
-  margin: 0 0 10px;
+  margin: 0 0 14px;
+  position: relative;
   box-shadow: 5px 5px 10px rgb(150, 209, 199);
-  transition: all 150ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  transform: 250ms ease-in-out;
 }
 
 .day:hover {
+  transform: translate3d(15px, 0px, 0px);
   background: rgba(255, 123, 84, 0.2);
+  box-shadow: 10px 10px 20px rgb(150, 209, 199);
 }
 
 .forecast-day {
@@ -167,24 +136,14 @@
   color: rgb(237, 97, 97);
   padding: 0;
   font-size: 24px;
-}
-
-.forecast-emoji {
-  font-size: 24px;
-}
-
-.precipitation {
-  position: relative;
-  top: -3px;
-  font-weight: 300;
-  font-size: 12px;
-  color: rgb(47, 196, 178);
+  margin-top: 20px;
 }
 
 .highest-temp {
   text-align: right;
   padding-right: 5px;
   font-size: 24px;
+  margin-top: 20px;
 }
 
 .lowest-temp {
@@ -193,12 +152,11 @@
   font-size: 16px;
   padding-top: 9px;
   color: rgb(47, 196, 178);
+  margin-top: 20px;
 }
 
 .coded-by {
-  display: block;
-  margin: 10px auto 50px;
-  max-width: 55%;
+  text-align: left;
 }
 
 .github-link {

@@ -28,30 +28,22 @@
     <div class="container">
       <div class="row weather-app-elements">
         <div class="col">
-          <div class="row top-section">
-            <div class="col weather-app">
-              <div class="unit-change">
-                <a href="#" class="celsius-button active" id="celsius">C</a>
-                <a href="#" class="fahrenheit-button" id="fahrenheit">F</a>
-              </div>
-            </div>
-            <div class="col search-form">
-              <form class="search-city" id="submit-city">
-                <input
-                  type="text"
-                  placeholder="How's the weather in..."
-                  autocomplete="off"
-                  class="city-input"
-                  id="which-city"
-                />
-                <input type="submit" value="Show me" class="show-me" />
-              </form>
-            </div>
+          <div class="row top-section search-form">
+            <form class="search-city" id="submit-city">
+              <input
+                type="text"
+                placeholder="How's the weather in..."
+                autocomplete="off"
+                class="city-input"
+                id="which-city"
+              />
+              <input type="submit" value="Show me" class="show-me" />
+            </form>
           </div>
           <div class="row bottom-section">
             <div class="col current-location-button">
               <button class="current-button" id="current-button">
-                Where am I at?
+                <i class="fas fa-map-marker-alt"></i>
               </button>
             </div>
             <div class="col city-time">
@@ -63,7 +55,7 @@
             <h1 class="current-weather">
               <img
                 src=""
-                class="fas fa-sun current-weather-emoji"
+                class="current-weather-emoji"
                 id="current-weather-icon"
               /><span
                 class="current-temperature"

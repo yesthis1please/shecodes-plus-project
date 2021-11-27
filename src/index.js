@@ -46,7 +46,7 @@ function displayForecast(response) {
             <div class="col">
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
-              }@2x.png" class="" width="40"/>
+              }@2x.png" class="forecast-icon" width="70"/>
             </div>
             <div class="col-3 highest-temp">${Math.round(
               forecastDay.temp.max
@@ -78,6 +78,7 @@ function getForecast(coordinates) {
 }
 
 function showCityTemp(response) {
+  console.log(response.data);
   celsiusTemperature = Math.round(response.data.main.temp);
   let currentTempElement = document.querySelector("#current-temperature");
   let city = document.querySelector("#current-city");
@@ -100,23 +101,6 @@ function handleCityInput(event) {
   event.preventDefault();
   let city = document.querySelector("#which-city").value;
   search(city);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  toFahrenheit.classList.remove("active");
-  toCelsius.classList.add("active");
-  let temperature = document.querySelector("span.current-temperature");
-  temperature.innerHTML = `${celsiusTemperature}°C`;
-}
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  toCelsius.classList.remove("active");
-  toFahrenheit.classList.add("active");
-  let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
-  let temperature = document.querySelector("span.current-temperature");
-  temperature.innerHTML = `${fahrenheit}°F`;
 }
 
 function showCurrentCityTemp(response) {
@@ -160,12 +144,6 @@ currentTime.innerHTML = formatDate(now);
 
 let submitCity = document.querySelector("#submit-city");
 submitCity.addEventListener("submit", handleCityInput);
-
-let toFahrenheit = document.querySelector("#fahrenheit");
-toFahrenheit.addEventListener("click", convertToFahrenheit);
-
-let toCelsius = document.querySelector("#celsius");
-toCelsius.addEventListener("click", convertToCelsius);
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCoordinates);
