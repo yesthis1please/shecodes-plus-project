@@ -20,27 +20,42 @@ function formatDate(date) {
     currentMinute = `0${currentMinute}`;
   }
 
-  return `${currentDay}, ${currentHour}:${currentMinute}`;
+  return `Last updated: ${currentDay}, ${currentHour}:${currentMinute}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector(".forecast");
   let forecastHTML = "";
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
          <div class="row day">
-            <div class="col-3 forecast-day">${day}</div>
+            <div class="col-2 forecast-day">${formatDay(forecastDay.dt)}</div>
             <div class="col">
-              <i class="fas fa-sun forecast-emoji"></i>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" class="" width="40"/>
             </div>
-            <div class="col-2 highest-temp">28°C</div>
-            <div class="col-1 lowest-temp">20°C</div>
+            <div class="col-3 highest-temp">${Math.round(
+              forecastDay.temp.max
+            )}°C</div>
+            <div class="col-2 lowest-temp">${Math.round(
+              forecastDay.temp.min
+            )}°C</div>
           </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
@@ -119,6 +134,8 @@ function showCurrentCityTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function showCoordinates(position) {

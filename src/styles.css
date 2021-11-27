@@ -142,12 +142,17 @@
   color: rgb(255, 123, 84);
 }
 
+.forecast {
+  margin-top: 100px;
+  max-width: 400px;
+}
+
 .day {
   color: rgb(18, 148, 127);
   text-align: center;
-  padding: 12px 40px 6px;
-  border-radius: 25px;
-  margin: 5px 0;
+  padding: 15px 40px 15px;
+  border-radius: 35px;
+  margin: 0 0 10px;
   box-shadow: 5px 5px 10px rgb(150, 209, 199);
   transition: all 150ms ease-in-out;
 }
@@ -161,6 +166,7 @@
   font-weight: 600;
   color: rgb(237, 97, 97);
   padding: 0;
+  font-size: 24px;
 }
 
 .forecast-emoji {
@@ -177,14 +183,15 @@
 
 .highest-temp {
   text-align: right;
-  padding-right: 0;
+  padding-right: 5px;
+  font-size: 24px;
 }
 
 .lowest-temp {
   text-align: left;
   font-weight: 300;
-  font-size: 12px;
-  padding-top: 4px;
+  font-size: 16px;
+  padding-top: 9px;
   color: rgb(47, 196, 178);
 }
 
